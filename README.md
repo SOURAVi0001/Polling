@@ -1,5 +1,5 @@
 # Intervue Poll System
-
+Live :-  `https://polling-frontend-6e4w.onrender.com`
 This repo contains a real-time interactive poll system (frontend + backend).
 
 - Frontend: React + Vite (client/)
@@ -58,8 +58,6 @@ cd client
 npm install
 npm run dev
 ```
-
-The frontend will start on http://localhost:5173.
 
 ## Features
 
