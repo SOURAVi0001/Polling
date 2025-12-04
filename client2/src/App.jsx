@@ -85,8 +85,8 @@ const ChatWidget = ({ role, name, students, onKickStudent }) => {
                       {m.sender}
                     </span>
                     <div className={`px-4 py-2.5 rounded-2xl text-sm font-medium max-w-[85%] ${m.sender === name
-                        ? 'bg-[#5B4EF0] text-white rounded-tr-none'
-                        : 'bg-[#333333] text-white rounded-tl-none'
+                      ? 'bg-[#5B4EF0] text-white rounded-tr-none'
+                      : 'bg-[#333333] text-white rounded-tl-none'
                       }`}>
                       {m.text}
                     </div>
@@ -290,10 +290,6 @@ const CreatePollForm = ({ onCreatePoll }) => {
   );
 };
 
-/**
- * Student: Waiting View
- * Matches Screenshot 2025-12-03 at 9.39.17 AM.png style (Wait for teacher...)
- */
 const StudentWaitingView = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full animate-in">
@@ -304,10 +300,6 @@ const StudentWaitingView = () => {
   );
 };
 
-/**
- * Student: Active Poll View
- * Matches Screenshot 2025-12-03 at 9.39.07 AM.png
- */
 const StudentPollView = ({ poll }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [hasVoted, setHasVoted] = useState(false);
@@ -511,7 +503,7 @@ const PastPollsView = ({ teacherName }) => {
   useEffect(() => {
     const fetchPolls = async () => {
       try {
-        const API_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5020';
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5020';
         const res = await fetch(`${API_URL}/api/polls?teacherName=${encodeURIComponent(teacherName)}`);
         const data = await res.json();
         setPolls(data);
