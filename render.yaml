@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: poll-backend
+    runtime: node
+    startCommand: npm start
+    dir: ./server
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_URL
+        value: https://polling-client.onrender.com
+
+  - type: static
+    name: poll-frontend
+    buildCommand: cd client2 && npm install && npm run build
+    staticPublishPath: ./client2/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://polling-server.onrender.com
+      - key: VITE_SOCKET_URL
+        value: https://polling-server.onrender.com
